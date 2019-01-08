@@ -29,30 +29,22 @@ function a2j_viewer_admin_access() {
  * Implements hook_form_alter().
  */
 function a2j_viewer_form_node_form_alter(&$form, &$form_state, $form_id) {
- dpm($form_id);
   if (empty(variable_get('a2j_viewer_content_type'))) {
     variable_set('a2j_viewer_content_type','article');
   }
-  $form_name = variable_get('a2j_viewer_content_type') .'_node_form';
-  dpm($form_name);
-  if ($form_name == $form_id) {
- //   $form['#after_build'][] = 'a2j_viewer_after_build';
-   // $form['#after_build'][] = 'a2j_viewer_after_build';
+
     $form['#submit'] += array('a2j_viewer_submit_handler');
-  }
+
 
 }
 
 function a2j_viewer_submit_handler($form, &$form_state) {
- //dpm($form_state['values']);
-  dpm('hello world');
- // dpm($form_state);
+
   $fieldname = variable_get('a2j_viewer_field_name');
   if (!empty($fieldname)) {
-    dpm($form_state['values'][$fieldname]);
+
     if (isset($form_state['values'][$fieldname][LANGUAGE_NONE][0]['fid'])) {
       $fid = $form_state['values'][$fieldname][LANGUAGE_NONE][0]['fid'];
-      dpm('my fid is ' .$form_state['values'][$fieldname][LANGUAGE_NONE][0]['fid']);
       a2j_viewer_unpack_file($fid);
     }
   }

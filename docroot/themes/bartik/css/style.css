@@ -1640,7 +1640,7 @@ div.admin-panel .description {
   background-color: #ddd;
 }
 
-#a2j .a2j {
-  max-width: inherit;
-  min-height: auto;
+.a2j {
+ width: 100%;
+ height: 500px;
 }

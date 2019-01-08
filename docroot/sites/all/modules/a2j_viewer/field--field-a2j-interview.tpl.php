@@ -1,5 +1,7 @@
+/**
+* Copy this file into your own theme and rename if you use a field other than "field_a2j_interview"
+*/
 <?php
-
 if (!empty(variable_get('a2j_viewer_field_name'))) {
   $iframe_class = '';
   $src = '';

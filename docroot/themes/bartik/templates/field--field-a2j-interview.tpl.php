@@ -1,5 +1,4 @@
 <?php
-
 if (!empty(variable_get('a2j_viewer_field_name'))) {
   $iframe_class = '';
   $src = '';
@@ -19,11 +18,11 @@ if (!empty(variable_get('a2j_viewer_field_name'))) {
 ?>
 
 <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
-  <?php if (!$label_hidden): ?>
-    <div class="field-label"<?php print $title_attributes; ?>><?php print $label ?>:&nbsp;</div>
-  <?php endif; ?>
+<?php if (!$label_hidden): ?>
+  <div class="field-label"<?php print $title_attributes; ?>><?php print $label ?>:&nbsp;</div>
+<?php endif; ?>
 
-  <div class="field-items"<?php print $content_attributes; ?>>
-    <iframe class="<?php print $iframe_class?>" src="<?php print $src?>"></iframe>
-  </div>
+<div class="field-items"<?php print $content_attributes; ?>>
+  <iframe class="<?php print $iframe_class?>" src="<?php print $src?>"></iframe>
+</div>
 </div>
