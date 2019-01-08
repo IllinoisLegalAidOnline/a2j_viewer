@@ -1,0 +1,5 @@
+name = A2J Viewer
+description = Provides a Drupal 7 version of A2J Author
+core = 7.x
+package = A2J
+files[] = a2j_viewer.ui.inc

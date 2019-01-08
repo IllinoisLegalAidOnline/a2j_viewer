@@ -1,0 +1,33 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: gdaniels
+ * Date: 1/8/19
+ * Time: 8:37 AM
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function a2j_viewer_menu() {
+  $items = array (
+
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_init().
+ */
+function a2j_viewer_init() {
+  libraries_load('a2j_viewer');
+  dpm('hello world');
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function a2j_viewer_page_alter(&$page) {
+  dpm($page);
+  $page['content']['#markup'] = 'Hello Gwen.';
+}
