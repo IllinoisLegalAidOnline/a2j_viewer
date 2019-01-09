@@ -5,12 +5,12 @@ if (!empty(variable_get('a2j_viewer_field_name'))) {
   $field_name = variable_get('a2j_viewer_field_name');
   if (isset($element['#object']->$field_name)) {
     $folder = variable_get('a2j_viewer_file_directory');
-    $lang = field_language('node',$element['#object'],$field_name);
+    $lang = field_language('node', $element['#object'], $field_name);
     $fid = $element['#object']->$field_name[$lang][0]['fid'];
-    $url = '/sites/default/files/' .$folder .'/fid' .$fid;
-    $template_url =$url .'/Guide.xml';
+    $url = '/sites/default/files/' . $folder . '/fid' . $fid;
+    $template_url = $url . '/Guide.xml';
     $file_url = $url;
-    $src = '/sites/all/libraries/a2j-viewer/viewer/viewer.html?templateURL=' .$template_url .'&fileURL=' .$file_url;
+    $src = '/sites/all/libraries/a2j-viewer/viewer/viewer.html?templateURL=' . $template_url . '&fileURL=' . $file_url;
     if (!empty(variable_get('a2j_viewer_class'))) {
       $iframe_class = variable_get('a2j_viewer_class');
     }
@@ -19,11 +19,14 @@ if (!empty(variable_get('a2j_viewer_field_name'))) {
 ?>
 
 <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
-<?php if (!$label_hidden): ?>
-  <div class="field-label"<?php print $title_attributes; ?>><?php print $label ?>:&nbsp;</div>
-<?php endif; ?>
+  <?php if (!$label_hidden): ?>
+    <div
+      class="field-label"<?php print $title_attributes; ?>><?php print $label ?>
+      :&nbsp;</div>
+  <?php endif; ?>
 
-<div class="field-items"<?php print $content_attributes; ?>>
-  <iframe class="<?php print $iframe_class?>" src="<?php print $src?>"></iframe>
-</div>
+  <div class="field-items"<?php print $content_attributes; ?>>
+    <iframe class="<?php print $iframe_class ?>"
+            src="<?php print $src ?>"></iframe>
+  </div>
 </div>

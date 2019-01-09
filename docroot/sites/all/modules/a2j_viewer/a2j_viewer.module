@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gdaniels
- * Date: 1/8/19
- * Time: 8:37 AM
- */
 
 /**
  * Implements hook_menu().
@@ -45,6 +39,15 @@ function a2j_viewer_form_node_form_alter(&$form, &$form_state, $form_id) {
 
 }
 
+/**
+ * Custom submit handler.
+ *
+ * Looks for an A2J field and then unzips and stores the A2J interview files
+ * for playback within content.
+ *
+ * @param $form
+ * @param $form_state
+ */
 function a2j_viewer_submit_handler($form, &$form_state) {
 
   $fieldname = variable_get('a2j_viewer_field_name');
@@ -56,6 +59,14 @@ function a2j_viewer_submit_handler($form, &$form_state) {
     }
   }
 }
+
+/**
+ * Unpacks the zip file and stores it in the right directory.
+ *
+ * Uses the folder name of fid[$fid] to ensure uniqueness.
+ * @param $fid
+ * @throws \Exception
+ */
 
 function a2j_viewer_unpack_file($fid) {
   $fileInfo = file_load($fid);
