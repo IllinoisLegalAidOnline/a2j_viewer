@@ -1,14 +1,15 @@
-/**
-* Copy this file into your own theme and rename if you use a field other than "field_a2j_interview"
-*/
 <?php
+/**
+ * Copy this file into your own theme and rename if you use a field other than "field_a2j_interview"
+ */
 if (!empty(variable_get('a2j_viewer_field_name'))) {
   $iframe_class = '';
   $src = '';
   $field_name = variable_get('a2j_viewer_field_name');
   if (isset($element['#object']->$field_name)) {
     $folder = variable_get('a2j_viewer_file_directory');
-    $fid = $element['#object']->$field_name[LANGUAGE_NONE][0]['fid'];
+    $lang = field_language('node',$element['#object'],$field_name);
+    $fid = $element['#object']->$field_name[$lang][0]['fid'];
     $url = '/sites/default/files/' .$folder .'/fid' .$fid;
     $template_url =$url .'/Guide.xml';
     $file_url = $url;
