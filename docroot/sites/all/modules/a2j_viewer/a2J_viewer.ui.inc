@@ -7,11 +7,14 @@
  */
 
 function a2j_viewer_admin_form($form, &$form_state) {
+  if (empty(variable_get('a2j_viewer_class'))) {
+    variable_set('a2j_viewer_class','a2j');
+  }
 
   $form['field_name'] = array (
     '#title' => t('What field are you using to upload A2J interviews?'),
     '#type' => 'textfield',
-    '#description' => 'Enter the machine name of the field',
+    '#description' => t('Enter the machine name of the field'),
     '#required' => TRUE,
     '#default_value' => variable_get('a2j_viewer_field_name'),
   );
@@ -23,6 +26,7 @@ function a2j_viewer_admin_form($form, &$form_state) {
   );
   $form['class'] = array (
     '#title' => t('Enter the CSS class name for the iframe to use'),
+    '#description' => t('By default, this should be a2j unless you want to override with your own custom class'),
     '#type' => 'textfield',
     '#required' => TRUE,
     '#default_value' => variable_get('a2j_viewer_class'),
